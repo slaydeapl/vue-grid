@@ -1,8 +1,53 @@
 <template>
   <div>
     <v-navigation-drawer right app>
-      <button @click="addItem">Add Item</button><br />
-      <button @click="addMeter">Add Meter</button>
+      <template v-slot:prepend>
+        <v-list-item two-line link>
+          <v-list-item-avatar>
+            <img src="https://randomuser.me/api/portraits/women/81.jpg" />
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Jane Smith</v-list-item-title>
+            <v-list-item-subtitle>Logged In</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </template>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item
+          v-for="item in items"
+          :key="item.title"
+          link
+          :input-value="item.value"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+
+      <v-divider></v-divider>
+
+      <v-list dense>
+        <v-list-item>
+          <v-btn block @click="addItem">Add Item</v-btn>
+        </v-list-item>
+        <v-list-item>
+          <v-btn block @click="addMeter">Add Meter</v-btn>
+        </v-list-item>
+      </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block> Logout </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
     <v-main>
       <grid-layout
@@ -29,7 +74,7 @@
         >
           <v-card class="grid-card" color="#26c6da" dark height="100%">
             <span class="remove" @click="removeItem(item.i)">✖</span>
-            <span class="move">🐵</span>
+            <span class="move">⬤</span>
 
             <component :is="item.type" class="no-drag" />
           </v-card>
@@ -44,6 +89,7 @@ import { GridLayout, GridItem } from 'vue-grid-layout'
 import SpeedGauge from '../components/SpeedGauge.vue'
 import PressureGauge from '../components/PressureGauge.vue'
 import TempGauge from '../components/TempGauge.vue'
+import CombinedGauge from '../components/CombinedGauge.vue'
 
 export default {
   components: {
@@ -52,27 +98,44 @@ export default {
     SpeedGauge,
     PressureGauge,
     TempGauge,
+    CombinedGauge,
   },
   data() {
     return {
-      layout: [
-        { x: 0, y: 0, w: 2, h: 2, i: '0' },
+      items: [
+        { title: 'Administration', icon: 'mdi-home-city', value: true },
+        { title: 'Dashboards', icon: 'mdi-view-dashboard', value: false },
+        // { title: 'My Account', icon: 'mdi-account' },
         {
-          x: 2,
+          title: 'Preset Views',
+          icon: 'mdi-view-dashboard-outline',
+          value: false,
+        },
+        { title: 'My Views', icon: 'mdi-database', value: false },
+      ],
+      layout: [
+        {
+          x: 0,
           y: 0,
           w: 4,
           h: 8,
-          i: '1',
+          i: '0',
           type: PressureGauge,
           minW: 4,
           minH: 8,
         },
-        { x: 4, y: 0, w: 2, h: 2, i: '2' },
-        { x: 6, y: 0, w: 2, h: 2, i: '3' },
-        { x: 8, y: 0, w: 2, h: 2, i: '4' },
-        { x: 10, y: 0, w: 4, h: 7, i: '5', type: SpeedGauge, minW: 4, minH: 7 },
-        { x: 12, y: 0, w: 4, h: 7, i: '6', type: TempGauge, minW: 4, minH: 7 },
-        { x: 14, y: 0, w: 4, h: 7, i: '7', type: TempGauge, minW: 4, minH: 7 },
+        { x: 4, y: 0, w: 4, h: 7, i: '1', type: SpeedGauge, minW: 4, minH: 7 },
+        { x: 10, y: 0, w: 4, h: 7, i: '2', type: TempGauge, minW: 4, minH: 7 },
+        {
+          x: 15,
+          y: 0,
+          w: 10,
+          h: 7,
+          i: '3',
+          type: CombinedGauge,
+          minW: 10,
+          minH: 7,
+        },
       ],
       draggable: true,
       resizable: true,
