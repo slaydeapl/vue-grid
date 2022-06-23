@@ -46,9 +46,9 @@
 
         <!-- From api -->
 
-        <!-- <v-list-item v-for="(n, index) in apiLoaded" :key="n">
-          <v-btn disabled block>{{ n[index] }}</v-btn>
-        </v-list-item> -->
+        <v-list-item v-for="n in 10" :key="n">
+          <v-btn disabled block>{{ apiLoaded[n + 317] }}</v-btn>
+        </v-list-item>
       </v-list>
 
       <template v-slot:append>
@@ -213,15 +213,15 @@ export default {
     // this.$gridlayout.load();
     this.index = this.layout.length
 
-    // try {
-    //   axios
-    //     .get('http://192.168.0.45:5000/fds')
-    //     // .then((response) => console.log(response.data.keys))
-    //     .then((response) => this.apiLoaded.push(response.data.keys))
-    //   console.log(this.apiLoaded)
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      axios
+        .get('http://192.168.0.45:5000/fds')
+        // .then((response) => console.log(response.data.keys))
+        .then((response) => (this.apiLoaded = response.data.keys.slice(0)))
+      console.log(this.apiLoaded)
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
     addItem: function () {
