@@ -8287,6 +8287,11 @@ vue@^2.6.11, vue@^2.6.12, vue@^2.6.14:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.14.tgz#e51aa5250250d569a3fbad3a8a5a687d6036e235"
   integrity sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ==
 
+vuejs-thermometer@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/vuejs-thermometer/-/vuejs-thermometer-0.1.3.tgz#a448a6c8b9a6107f53b8cd2d2b6905829a0ba6ee"
+  integrity sha512-xFY3MbaVMthi21pi4Kfv+AeBwoFghfUL/oMTx4C2ixEO5z8NDKJ/wGmD/47fhhxgw0XsjNa4vV5+5pu3KlROxQ==
+
 vuetify-loader@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/vuetify-loader/-/vuetify-loader-1.7.3.tgz#404657f4925c828f400fe3269003421d586835c6"
