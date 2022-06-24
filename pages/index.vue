@@ -104,6 +104,7 @@ import gseLO2TempValuelabel1 from '../components/gseLO2TempValuelabel1.vue'
 import EventName from '../components/EventName.vue'
 import EventTime from '../components/EventTime.vue'
 import CDTimeTimeText from '../components/CDTimeTimeText.vue'
+import ProjectHealthText from '../components/ProjectHealthText.vue'
 
 import axios from 'axios'
 
@@ -121,6 +122,7 @@ export default {
     EventName,
     EventTime,
     CDTimeTimeText,
+    ProjectHealthText,
   },
   data() {
     return {
@@ -149,7 +151,7 @@ export default {
           minH: 4,
         },
         {
-          x: 1,
+          x: 5,
           y: 0,
           w: 5,
           h: 4,
@@ -158,17 +160,6 @@ export default {
           title: 'Process Count',
           minW: 5,
           minH: 4,
-        },
-        {
-          x: 15,
-          y: 0,
-          w: 10,
-          h: 7,
-          i: '3',
-          type: CombinedGauge,
-          title: 'Combined Gauge',
-          minW: 10,
-          minH: 7,
         },
         {
           x: 6,
@@ -182,7 +173,7 @@ export default {
           minH: 7,
         },
         {
-          x: 1,
+          x: 10,
           y: 0,
           w: 5,
           h: 4,
@@ -194,7 +185,7 @@ export default {
         },
         {
           x: 1,
-          y: 0,
+          y: 2,
           w: 5,
           h: 4,
           i: '6',
@@ -211,6 +202,17 @@ export default {
           i: '7',
           type: gseLO2TempValuelabel1,
           title: 'gseLO2TempValuelabel1',
+          minW: 5,
+          minH: 4,
+        },
+        {
+          x: 8,
+          y: 2,
+          w: 5,
+          h: 4,
+          i: '8',
+          type: ProjectHealthText,
+          title: 'Project Health Text',
           minW: 5,
           minH: 4,
         },
@@ -250,6 +252,16 @@ export default {
           title: 'Temp Gauge',
           func: 'addTemp',
           minW: 4,
+          minH: 7,
+        },
+        {
+          x: 15,
+          y: 0,
+          w: 10,
+          h: 7,
+          type: CombinedGauge,
+          title: 'Combined Gauge',
+          minW: 10,
           minH: 7,
         },
       ],
