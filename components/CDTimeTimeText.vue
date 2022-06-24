@@ -2,9 +2,7 @@
   <div>
     <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-title class="text-h5">
-          CDTime_Time_Text
-        </v-list-item-title>
+        <v-list-item-title class="text-h5"> Test Analog #7 </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
 
@@ -29,7 +27,7 @@ export default {
   mounted() {
     this.interval = setInterval(() => {
       axios
-        .get('http://192.168.0.45:5000/CDTime_Time_Text/value')
+        .get('http://192.168.0.45:5000/Test%20Analog%20%237/value')
         .then((response) => (this.value = response.data.value))
     }, 1000)
   },
