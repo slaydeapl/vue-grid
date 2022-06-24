@@ -47,7 +47,7 @@
         <!-- From api -->
 
         <v-list-item v-for="n in 10" :key="n">
-          <v-btn disabled block>{{ apiLoaded[n + 317] }}</v-btn>
+          <v-btn disabled block>{{ apiLoaded[n] }}</v-btn>
         </v-list-item>
       </v-list>
 
@@ -100,6 +100,11 @@ import TempGauge from '../components/TempGauge.vue'
 import CombinedGauge from '../components/CombinedGauge.vue'
 import CpuPercent from '../components/CpuPercent.vue'
 import ProcessCount from '../components/ProcessCount.vue'
+import gseLO2TempValuelabel1 from '../components/gseLO2TempValuelabel1.vue'
+import EventName from '../components/EventName.vue'
+import EventTime from '../components/EventTime.vue'
+import CDTimeTimeText from '../components/CDTimeTimeText.vue'
+
 import axios from 'axios'
 
 export default {
@@ -112,6 +117,10 @@ export default {
     CombinedGauge,
     CpuPercent,
     ProcessCount,
+    gseLO2TempValuelabel1,
+    EventName,
+    EventTime,
+    CDTimeTimeText,
   },
   data() {
     return {
@@ -128,6 +137,17 @@ export default {
         { title: 'My Views', icon: 'mdi-database', value: false },
       ],
       layout: [
+        {
+          x: 1,
+          y: 0,
+          w: 5,
+          h: 4,
+          i: '1',
+          type: EventName,
+          title: 'Event Name',
+          minW: 5,
+          minH: 4,
+        },
         {
           x: 1,
           y: 0,
@@ -160,6 +180,39 @@ export default {
           title: 'CPU Percent',
           minW: 4,
           minH: 7,
+        },
+        {
+          x: 1,
+          y: 0,
+          w: 5,
+          h: 4,
+          i: '5',
+          type: EventTime,
+          title: 'Event Time',
+          minW: 5,
+          minH: 4,
+        },
+        {
+          x: 1,
+          y: 0,
+          w: 5,
+          h: 4,
+          i: '6',
+          type: CDTimeTimeText,
+          title: 'CDTime_Time_Text',
+          minW: 5,
+          minH: 4,
+        },
+        {
+          x: 1,
+          y: 0,
+          w: 5,
+          h: 4,
+          i: '7',
+          type: gseLO2TempValuelabel1,
+          title: 'gseLO2TempValuelabel1',
+          minW: 5,
+          minH: 4,
         },
       ],
       notLoaded: [
