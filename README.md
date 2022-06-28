@@ -2,9 +2,11 @@
 
 ## Requirments
 
-NodeJs (LTS) must be installed on the machine it is running on. [NodeJS Download](https://nodejs.org/en/download/)
-Yarn must be installed to run, install and deploy the project [Yarn](https://yarnpkg.com/)
-Git should be installed to make it easier to push and pull from the repo. [Git](https://git-scm.com/downloads)
+NodeJs (LTS) must be installed on the machine it is running on [NodeJS Download](https://nodejs.org/en/download/).
+
+Yarn must be installed to run, install and deploy the project [Yarn](https://yarnpkg.com/).
+
+Git should be installed to make it easier to push and pull from the repo [Git](https://git-scm.com/downloads).
 
 ## Build Setup
 
