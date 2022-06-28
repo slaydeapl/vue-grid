@@ -1,9 +1,17 @@
-# gridtest
+# CITE CCTK Web UI
+
+## Requirments
+
+NodeJs (LTS) must be installed on the machine it is running on. [NodeJS Download](https://nodejs.org/en/download/)
+Yarn must be installed to run, install and deploy the project [Yarn](https://yarnpkg.com/)
+Git should be installed to make it easier to push and pull from the repo. [Git](https://git-scm.com/downloads)
 
 ## Build Setup
 
+In the root of the project directory, run these commands depending on what you want to do.
+
 ```bash
-# install dependencies
+# install dependencies (requirment for all to start)
 $ yarn install
 
 # serve with hot reload at localhost:3000
@@ -17,7 +25,11 @@ $ yarn start
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+For detailed explanation on how nuxtjs works, check out the [documentation](https://nuxtjs.org).
+
+## Deploying the app
+
+To deploy the app, simply push to the master branch of the repo. Jenkins will then be sent a webhook to build and deploy the application automatically.
 
 ## Special Directories
 
@@ -33,6 +45,8 @@ More information about the usage of this directory in [the documentation](https:
 
 The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
 
+Currently, this is where the grid objects are defined. If you would like to add an item, this is where to it, then import it to the index.vue file.
+
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
 
 ### `layouts`
@@ -44,6 +58,8 @@ More information about the usage of this directory in [the documentation](https:
 ### `pages`
 
 This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+
+This is where the grid is located. This file then imports the components from the components folder and displays them on the page.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
 
@@ -66,5 +82,3 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-
-pouya is cool 2.0

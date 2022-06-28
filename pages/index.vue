@@ -301,7 +301,6 @@ export default {
       // Increment the counter to ensure key is always unique.
       this.index++
     },
-
     removeItem: function (val) {
       const index = this.layout.map((item) => item.title).indexOf(val)
       // console.log(index)
