@@ -1,6 +1,6 @@
 # CITE CCTK Web UI
 
-## Requirments
+## Requirements
 
 [NodeJS (LTS)](https://nodejs.org/en/download/) must be installed on the machine it is running on.
 
@@ -91,3 +91,50 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+## Adding to the grid
+
+In order to add to the grid, first the item must be defined in the components directory. Anything that is in this file will be displayed inside a Card component on the grid.
+
+For example -
+
+    <template>
+      <div>
+        <v-list-item two-line>
+          <v-list-item-content>
+            <v-list-item-title class="text-h5"> New Component </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-row align="center" justify="center">
+          <h1>{{ value }}</h1>
+        </v-row>
+      </div>
+    </template>
+
+You can use scripts at the bottom of the page to update the value with api calls or other.
+
+This iem will have to be imported in the pages/index.vue file, and the new component should be added to either the layout array or the notLoaded array.
+
+For example -
+
+    import NewComponent from '../components/NewComponent.vue'
+
+    export default {
+      components: {
+        NewComponent,
+      },
+      data() {
+        return {
+          layout: [
+            {
+              x: 1,   // x position on grid
+              y: 0,   // y position on grid
+              w: 5,   // width of element
+              h: 4,   // height of element
+              i: '1', // index of element (must be unique)
+              type: NewComponent,   // which component to use
+              title: 'New component',   // the title of the component
+              minW: 5,    // minimum width
+              minH: 4,    // minimum height
+            },
