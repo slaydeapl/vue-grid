@@ -2,7 +2,7 @@
 
 ## Requirments
 
-[NodeJS (LTS))](https://nodejs.org/en/download/) must be installed on the machine it is running on.
+[NodeJS (LTS)](https://nodejs.org/en/download/) must be installed on the machine it is running on.
 
 [Yarn](https://yarnpkg.com/) must be installed to run, install and deploy the project.
 
