@@ -34,7 +34,7 @@ For detailed explanation on how nuxtjs works, check out the [documentation](http
 
 ## Deploying the app
 
-To deploy the app, simply push to the master branch of the repo. Jenkins will then be sent a webhook to build and deploy the application automatically.
+To deploy the app, simply push to the master branch of the repo. Jenkins will then be sent a webhook to build and deploy the application automatically. You will be able to find the application [here](http://192.168.0.36:34131/).
 
 If using another host, after building the project, you can use yarn start on the machine host after building to run it for production. It is best suited to be running in a container.
 
