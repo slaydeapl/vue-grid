@@ -2,17 +2,20 @@
 
 ## Requirments
 
-NodeJs (LTS) must be installed on the machine it is running on [NodeJS Download](https://nodejs.org/en/download/).
+[NodeJS (LTS))](https://nodejs.org/en/download/) must be installed on the machine it is running on.
 
-Yarn must be installed to run, install and deploy the project [Yarn](https://yarnpkg.com/).
+[Yarn](https://yarnpkg.com/) must be installed to run, install and deploy the project.
 
-Git should be installed to make it easier to push and pull from the repo [Git](https://git-scm.com/downloads).
+[Git](https://git-scm.com/downloads) should be installed to make it easier to push and pull from the repo.
 
 ## Build Setup
 
 In the root of the project directory, run these commands depending on what you want to do.
 
 ```bash
+# download the repo and its contents
+$ git clone http://192.168.0.36:32891/cite.allpoints.com/vue-grid.git
+
 # install dependencies (requirment for all to start)
 $ yarn install
 
@@ -32,6 +35,10 @@ For detailed explanation on how nuxtjs works, check out the [documentation](http
 ## Deploying the app
 
 To deploy the app, simply push to the master branch of the repo. Jenkins will then be sent a webhook to build and deploy the application automatically.
+
+If using another host, after building the project, you can use yarn start on the machine host after building to run it for production. It is best suited to be running in a container.
+
+If using a static host, generate the static project first, then use those files according to the instructions of your host.
 
 ## Special Directories
 
