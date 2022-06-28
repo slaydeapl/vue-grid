@@ -114,7 +114,7 @@ For example -
 
 You can use scripts at the bottom of the page to update the value with api calls or other.
 
-This iem will have to be imported in the pages/index.vue file, and the new component should be added to either the layout array or the notLoaded array.
+This iem will have to be imported in the pages/index.vue file, and the new component should be added to either the layout array or the notLoaded array. The "layout" array are items that are loaded by default, while the "notLoaded" array are ones waiting to be added.
 
 For example -
 
