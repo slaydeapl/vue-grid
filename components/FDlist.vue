@@ -48,13 +48,24 @@ export default {
     unRequested: function () {
       var that = this
       if (!that.value) {
-        return that.socketFDs.filter(function (item) {
+        return that.socketFDs
+          .filter(function (item) {
+            return !Object.keys(that.socketReq).includes(item)
+          })
+          .filter(function (item) {
+            if (that.selectedItems) {
+              return !that.selectedItems.includes(item)
+            }
+            return true
+          })
+      }
+      return that.socketFDs
+        .filter(function (item) {
+          return item.includes(that.value)
+        })
+        .filter(function (item) {
           return !Object.keys(that.socketReq).includes(item)
         })
-      }
-      return that.socketFDs.filter(function (item) {
-        return item.includes(that.value)
-      })
     },
   },
 }

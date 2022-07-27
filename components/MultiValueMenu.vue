@@ -29,6 +29,7 @@
             @click="
               dialog.value = false
               $emit('load-multi', itemsToAdd)
+              itemsToAdd = []
             "
             >Add</v-btn
           >
