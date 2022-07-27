@@ -1,26 +1,70 @@
 <template>
-  <v-list dense>
-    <RecycleScroller
-      class="scroller"
-      :items="$store.state.socketFDs"
-      :item-size="5"
-      key-field="id"
-      v-slot="{ item }"
+  <div>
+    <v-autocomplete
+      auto-select-first
+      clearable
+      v-model="value"
+      :items="searchOptions"
+    ></v-autocomplete>
+    <v-virtual-scroll
+      :items="unRequested"
+      item-height="40"
+      max-height="500"
+      max-width="400"
+      :bench="20"
     >
-      <v-list-item v-if="!Object.keys($store.state.socketReq).includes(item)">
-        <v-btn block @click="$emit('load-item', item)">{{ item }}</v-btn>
-      </v-list-item>
-    </RecycleScroller>
-    <!-- </template> -->
-  </v-list>
+      <template v-slot="{ item }">
+        <v-list-item class="listItem">
+          <v-btn block small @click="$emit('load-item', item)" class="listItem">
+            {{ item }}
+          </v-btn>
+        </v-list-item>
+      </template>
+    </v-virtual-scroll>
+  </div>
 </template>
 
 <script>
-import Vue from 'vue'
-
 export default {
-  components: {
-    RecycleScroller,
+  props: ['selectedItems'],
+  data() {
+    return {
+      value: '',
+    }
+  },
+  computed: {
+    socketFDs() {
+      return this.$store.state.socketFDs
+    },
+    socketReq() {
+      return this.$store.state.socketReq
+    },
+    searchOptions: function () {
+      var that = this
+      return that.socketFDs.filter(function (item) {
+        return !Object.keys(that.socketReq).includes(item)
+      })
+    },
+    unRequested: function () {
+      var that = this
+      if (!that.value) {
+        return that.socketFDs.filter(function (item) {
+          return !Object.keys(that.socketReq).includes(item)
+        })
+      }
+      return that.socketFDs.filter(function (item) {
+        return item.includes(that.value)
+      })
+    },
   },
 }
 </script>
+
+<style>
+.listItem {
+  width: 350px;
+}
+button {
+  overflow: hidden;
+}
+</style>

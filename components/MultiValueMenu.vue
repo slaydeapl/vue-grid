@@ -10,17 +10,28 @@
           <v-container>
             <v-row>
               <v-col cols="6">
-                <FDlist />
+                <FDlist @load-item="queItem" :selectedItems="itemsToAdd" />
               </v-col>
               <v-col cols="6">
-                <FDlist />
+                <ul v-for="item in itemsToAdd" :key="item">
+                  {{
+                    item
+                  }}
+                </ul>
               </v-col>
             </v-row>
           </v-container>
-
           <div class="text-h2 pa-12"></div>
         </v-card-text>
         <v-card-actions class="justify-end">
+          <v-btn
+            text
+            @click="
+              dialog.value = false
+              $emit('load-multi', itemsToAdd)
+            "
+            >Add</v-btn
+          >
           <v-btn text @click="dialog.value = false">Close</v-btn>
         </v-card-actions>
       </v-card>
@@ -29,5 +40,16 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      itemsToAdd: [],
+    }
+  },
+  methods: {
+    queItem(val) {
+      this.itemsToAdd.push(val)
+    },
+  },
+}
 </script>
