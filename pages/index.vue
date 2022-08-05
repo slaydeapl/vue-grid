@@ -131,7 +131,15 @@ export default {
         initConnect = false
       } else {
         // console.log(event.data)
-        self.$store.commit('SET_Data', JSON.parse(event.data))
+        try {
+          var itemdata
+          itemdata = event.data.replace(/[^ -~]/g, '')
+          // console.log(itemdata)
+
+          self.$store.commit('SET_Data', JSON.parse(itemdata))
+        } catch (error) {
+          // console.log(error)
+        }
       }
     }
 
